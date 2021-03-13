@@ -1,2 +1,0 @@
-# GitEscape
-Android Game
