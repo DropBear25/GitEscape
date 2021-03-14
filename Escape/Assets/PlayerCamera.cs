@@ -16,7 +16,7 @@ public class PlayerCamera : MonoBehaviour
     Vector3 targetRotation;
     Vector3 currentVel;
     public bool enableMobileInputs = false;
-   // public FixedTouchField touchField; 
+    public FixedTouchField touchField; 
 
     public Transform target;
 
@@ -31,8 +31,8 @@ public class PlayerCamera : MonoBehaviour
     {
         if (enableMobileInputs)
         {
-           // Yaxis += TouchField.TouchDist.x * RotationSensitivity;
-          //  Xaxis -= TouchField.TouchDist.y * RotationSensitivity;
+           Yaxis += touchField.TouchDist.x * RotationSensitivity;
+           Xaxis -= touchField.TouchDist.y * RotationSensitivity;
         }
         else
         {
