@@ -11,9 +11,12 @@ public class PlayerCamera : MonoBehaviour
 
     float RotationMin = -40f;
     float RotationMax = 80f;
-    float smoothTime = 0.9f;
+    float smoothTime = 0.12f;
+
     Vector3 targetRotation;
     Vector3 currentVel;
+    public bool enableMobileInputs = false;
+   // public FixedTouchField touchField; 
 
     public Transform target;
 
@@ -23,12 +26,19 @@ public class PlayerCamera : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per frame 
+    void LateUpdate()
     {
-        Yaxis += Input.GetAxis("Mouse X")* RotationSensitivity;
-        Xaxis -= Input.GetAxis("Mouse Y")* RotationSensitivity;
-
+        if (enableMobileInputs)
+        {
+           // Yaxis += TouchField.TouchDist.x * RotationSensitivity;
+          //  Xaxis -= TouchField.TouchDist.y * RotationSensitivity;
+        }
+        else
+        {
+            Yaxis += Input.GetAxis("Mouse X") * RotationSensitivity;
+            Xaxis -= Input.GetAxis("Mouse Y") * RotationSensitivity;
+        }
 
       Xaxis = Mathf.Clamp(Xaxis, RotationMin, RotationMax);
         targetRotation = Vector3.SmoothDamp(targetRotation, new Vector3(Xaxis, Yaxis), ref currentVel, smoothTime);
