@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 	void Awake() {
 		animator = GetComponent<Animator> ();
 		if (arsenal.Length > 0)
-			SetArsenal (arsenal[0].name);
+			SetArsenal (arsenal[1].name);
 		}
 
 	public void SetArsenal(string name) {

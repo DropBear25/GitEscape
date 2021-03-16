@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     float currentVelocity;
     public float MoveSpeed = 3f;
     public float SmoothRotationTime = 0.25f;
-    public bool enableMobileInputs = false; 
+    public bool enableMobileInputs = false;
+    public FixedButton Button;
 
     float CurrentSpeed;
     float speedVelocity;
@@ -43,6 +44,8 @@ public class Player : MonoBehaviour
         }
         float targetSpeed = MoveSpeed * inputDir.magnitude;
         CurrentSpeed = Mathf.SmoothDamp(CurrentSpeed, targetSpeed, ref speedVelocity, 0.12f);
+
+      
 
         
         if (inputDir.magnitude > 0)
