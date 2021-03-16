@@ -14,7 +14,7 @@ public class Actions : MonoBehaviour {
 	}
 
 	public void Stay () {
-		animator.SetBool("Aiming", false);
+		animator.SetBool("Aiming", true);
 		animator.SetFloat ("Speed", 0f);
 		}
 
